@@ -13,7 +13,7 @@ Includes:
 * eb-cli
 * tar
 
-### testing
+### postgres
 
 An extended postgres image that comes with pre-created databases for use when running unit tests.
 
