@@ -21,16 +21,18 @@ An extended postgres image that comes with pre-created databases for use when ru
 
 Pushing commits and tags to GitHub will result in a public [bsdeducation](https://hub.docker.com/u/bsdeducation) Docker image being built automatically by Docker Hub.
 
-This repo currently has 2 Dockerfiles and Docker Hub has 2 repositories with different configuration to observe tags on git and use the appropriate Dockerfile to rebuild the image.
+This git repo has various Dockerfiles in folders, and Docker Hub has multiple repositories each with different configuration to watch for tags on this git repo and to rebuild the appropriate Dockerfile to update the Docker image.
 
 ## Deploying new versions
 
-Use git tags to define the versions of the Docker image:
-`git tag -a build-deploy/v2 -m "install foobar"`
-
-Preferably, add the tag before you push the commit, but if you have already pushed the commit then use `git push origin build-deploy/v2`.
+Create a new tag:
+* commit your changes
+* `git tag -a build-deploy/v2 -m "install foobar"`
+* `git push origin build-deploy/v2`
 
 Moving an existing tag to a later commit:
 * commit your changes
 * ``git tag -a -f build-deploy/v1 `git rev-parse HEAD` ``
 * `git push --force origin build-deploy/v1`
+
+Either way, Docker Hub should automatically rebuild after the commit and tag are pushed to GitHub.
