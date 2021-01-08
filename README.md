@@ -23,6 +23,6 @@ Pushing commits and tags to BitBucket will result in a public bsdlaunchbox Docke
 ## Deploying new versions
 
 Use git tags to define the versions of the Docker image:
-`git tag -a node/v1 -m "Version 1 release"`
+`git tag -a build-deploy/v2 -m "install foobar"`
 
-Preferably, add the tag before you push the commit, but if you have already pushed the commit then use `git push origin node/v1`.
+Preferably, add the tag before you push the commit, but if you have already pushed the commit then use `git push origin build-deploy/v2`.

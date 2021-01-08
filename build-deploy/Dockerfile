@@ -9,3 +9,5 @@ RUN yum install -y nodejs python3-pip
 RUN pip3 install --upgrade awscli awsebcli
 
 RUN npm install yarn -g
+
+RUN yum install -y tar

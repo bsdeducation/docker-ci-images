@@ -1,0 +1,12 @@
+{
+  "name": "docker-ci-images",
+  "version": "0.0.0",
+  "description": "BSD Education dev team's Docker images for continuous integration.",
+  "author": "BSD Education",
+  "repository": "https://github.com/bsdeducation/docker-ci-images",
+  "license": "MIT",
+    "scripts": {
+    "run:build-deploy": "cd build-deploy && docker build -t ci-build-deploy . && docker run -it ci-build-deploy",
+    "run:postgres": "cd postgres && docker build -t ci-postgres . && docker run -it ci-postgres"
+  }
+}
