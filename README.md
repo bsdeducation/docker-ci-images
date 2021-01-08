@@ -32,6 +32,5 @@ Preferably, add the tag before you push the commit, but if you have already push
 
 Moving an existing tag to a later commit:
 * commit your changes
-* get the latest commit ID: `git rev-parse HEAD`
-* `git tag -a -f build-deploy/v1 <latest commit ID>`
+* ``git tag -a -f build-deploy/v1 `git rev-parse HEAD` ``
 * `git push --force origin build-deploy/v1`
