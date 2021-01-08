@@ -1,7 +1,7 @@
 FROM ubuntu:20.10
 
 # node, npm
-RUN apt-get update && apt-get -y install sudo nodejs npm python3-pip curl
+RUN apt-get update && apt-get -y install sudo nodejs npm git python3-pip curl
 
 # aws, eb
 RUN pip3 install --upgrade awscli awsebcli
