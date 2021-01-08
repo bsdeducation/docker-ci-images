@@ -1,13 +1,12 @@
-FROM amazonlinux
+FROM ubuntu:20.10
 
-RUN yum install -y gcc-c++ make
+# node, npm
+RUN apt-get update && apt-get -y install sudo nodejs npm python3-pip curl
 
-RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
-
-RUN yum install -y nodejs python3-pip
-
+# aws, eb
 RUN pip3 install --upgrade awscli awsebcli
 
-RUN npm install yarn -g
-
-RUN yum install -y tar
+# yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN sudo apt-get update && sudo apt-get install -y yarn
