@@ -1,10 +1,11 @@
-FROM ubuntu:22.04
+FROM node:16-bullseye
 
-# node, npm (to get source and install deps)
-RUN apt-get update \
-    && apt-get -y install sudo curl \
-    && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get -y install sudo nodejs \
-    && node -v \
+# install aws cli and eb cli and get versions to confirm install
+
+RUN pip3 install --upgrade --no-cache-dir awscli awsebcli
+
+RUN node -v \
     && npm -v \
-    && rm -rf /var/lib/apt/lists/*
+    && yarn -v \
+    && aws --version \
+    && eb --version
