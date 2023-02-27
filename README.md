@@ -11,28 +11,26 @@ Includes:
 * yarn
 * aws-cli
 * eb-cli
-* tar
 
 ### postgres
 
 An extended postgres image that comes with pre-created databases for use when running unit tests.
 
-## How it works
-
-Pushing commits and tags to GitHub will result in a public [bsdeducation](https://hub.docker.com/u/bsdeducation) Docker image being built automatically by Docker Hub.
-
-This git repo has various Dockerfiles in folders, and Docker Hub has multiple repositories each with different configuration to watch for tags on this git repo and to rebuild the appropriate Dockerfile to update the Docker image.
 
 ## Deploying new versions
 
-Create a new tag:
-* commit your changes
-* `git tag -a build-deploy/v2 -m "install foobar"`
-* `git push origin build-deploy/v2`
+After writing your image you can build it with specifying a tag name and use the following command
 
-Moving an existing tag to a later commit:
-* commit your changes
-* ``git tag -a -f build-deploy/v1 `git rev-parse HEAD` ``
-* `git push --force origin build-deploy/v1`
+`docker build -t bsdeducation/ci-build-deploy:v3 .`
 
-Either way, Docker Hub should automatically rebuild after the commit and tag are pushed to GitHub.
+And then after you build your image you can now set your credentials to upload to docker hub using
+
+`docker login`
+
+And finally push your image into docker hub using
+
+`docker push bsdeducation/ci-build-deploy:v3`
+
+At the end you should find your version on docker hub here
+
+`https://hub.docker.com/repository/docker/bsdeducation/ci-build-deploy/general`
