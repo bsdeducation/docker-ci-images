@@ -2,7 +2,7 @@ FROM node:16-bullseye
 
 # Install python and pip3
 RUN apt-get update \
-    && apt-get -y install awscli python3 python3-pip \
+    && apt-get -y install awscli python3 git python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 # install aws cli and eb cli
