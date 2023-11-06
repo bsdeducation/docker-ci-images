@@ -1,4 +1,4 @@
-FROM node:16-bullseye
+FROM node:18-bookworm
 
 # Install python and pip3
 RUN apt-get update \
@@ -6,7 +6,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # install aws cli and eb cli
-RUN pip3 install --upgrade --no-cache-dir awsebcli
+RUN pip3 install --upgrade --no-cache-dir awsebcli --break-system-packages
 
 # Print versions to confirm install
 RUN node -v \
