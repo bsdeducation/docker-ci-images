@@ -6,7 +6,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # install aws cli and eb cli
-RUN pip3 install --upgrade --no-cache-dir awsebcli --break-system-package
+RUN pip3 install --upgrade --no-cache-dir awsebcli --break-system-packages
 
 # Print versions to confirm install
 RUN node -v \
